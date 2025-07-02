@@ -1,0 +1,14 @@
+<button id="boton-pagar" style="display: none;">Pagar</button>
+<script>
+// Verificar si el carrito está vacío antes de mostrar el botón de pagar
+function actualizarBotonPagar() {
+  if (carrito.length === 0) {
+    document.getElementById('boton-pagar').style.display = 'none';
+  } else {
+    document.getElementById('boton-pagar').style.display = 'block';
+  }
+}
+
+// Llamar a la función cada vez que se actualiza el carrito
+actualizarBotonPagar();
+</script>

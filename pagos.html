@@ -1,0 +1,24 @@
+<!-- Formulario de pago con opción de envío -->
+<label for="envio">Método de envío:</label>
+<select id="envio">
+  <option value="normal">Envío Normal (Gratis)</option>
+  <option value="urgente">Envío Urgente (+ $10)</option>
+</select>
+
+<!-- Validación para tarjeta de crédito de 16 dígitos -->
+<label for="tarjeta">Número de tarjeta:</label>
+<input type="text" id="tarjeta" maxlength="16" pattern="\d{16}" required />
+
+<script>
+// Calcular el costo total incluyendo el envío
+function calcularTotal() {
+  let total = carrito.reduce((sum, producto) => sum + producto.precio, 0);
+  const envio = document.getElementById('envio').value;
+  
+  if (envio === 'urgente') {
+    total += 10;
+  }
+  
+  document.getElementById('total').innerText = `Total a pagar: $${total}`;
+}
+</script>
